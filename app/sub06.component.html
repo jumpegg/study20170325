@@ -1,0 +1,64 @@
+<div>{{apple |uppercase|lowercase|uppercase|lowercase}}</div>
+<div>{{('1'|i18nSelect: fruit)|uppercase}}</div>
+
+<p>#######################################</p>
+
+<p>{{'abc123' | replace:delete_alphabet:''}}</p>
+<p>{{'abc123' | replace:delete_number:''}}</p>
+<p>{{'a#b$%c@123' | replace:delete_special_character:''}}</p>
+<p>{{'i hate you' | replace:replace_src:replace_target}}</p>
+
+<p>######################################</p>
+
+<div>
+    출력갯수:
+    <select [(ngModel)]="numDisplay">
+        <option *ngFor="let num of [0,1,2,3,4,5,6,7]" [value]=" num">{{num}} 개 출력</option>
+    </select>
+</div>
+<br>
+<ol>
+    <li *ngFor="let element of elements | limitTo:numDisplay">
+        {{element}}
+    </li>
+</ol>
+
+<p>######################################</p>
+
+<div>
+    최소나이 :
+    <select [(ngModel)]="min">
+        <option *ngFor="let value of range" [value]="value">{{value}} 세 이상</option>
+    </select>
+</div>
+
+<div>
+    최대나이 :
+    <select [(ngModel)]="max">
+        <option *ngFor="let value of range" [value]="value">{{value}} 세 이하</option>
+    </select>
+</div>
+<br>
+<ol>
+    <li *ngFor="let member of members | filter:min:max">
+        {{member.name}} ({{member.age}})
+    </li>
+</ol>
+
+<p>######################################</p>
+
+<section>
+    <input type="text" [(ngModel)]="key" placeholder="검색어를 입력해주세요">
+    키 기준 :
+    <select [(ngModel)]="field">
+        <option value="name">이름</option>
+        <option value="age">나이</option>
+    </select>
+    <label><input type="checkbox" [(ngModel)]="ignoreCase">대소문자 무시</label>
+</section>
+<br>
+<ol>
+    <li *ngFor="let member of members | search:key:field:ignoreCase">
+        {{member.name}} ({{member.age}})
+    </li>
+</ol>

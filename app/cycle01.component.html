@@ -1,0 +1,6 @@
+<h3>cycle test</h3>
+<button (click)="toggle()">Comtent 상태변경</button>
+<button (click)="isShow=!isShow">{{isShow == false? '컴포넌트 추가':'컴포넌트 삭제'}}</button>
+<br>
+<input type="text" [(ngModel)]="test">
+{{test}}

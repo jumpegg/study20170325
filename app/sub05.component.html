@@ -1,0 +1,24 @@
+<p>중단없는 스트림 출력 : {{ second | async }}</p>
+<p>50까지의 스트림 출력 : {{ second_map_take | async }}</p>
+<p>배열 스트림 출력 : {{greetings$ | async }}</p>
+<select [(ngModel)]="take">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+<button (click)="asyncCall(take)">비동기 호출</button>
+
+<p>######################################</p>
+
+<p>0:3 -> {{msg | slice:0:3}}</p>
+<p>3:0 -> {{msg | slice:3:0}}</p>
+<p>-3 -> {{msg | slice:-3}}</p>
+<p>-5:-2 -> {{msg | slice:-5:-2}}</p>
+<p>-10 -> {{msg | slice:-10}}</p>
+<p>10 -> {{msg | slice:10}}</p>
+
+<p>######################################</p>
+
+{{ apple | i18nSelect: fruit}} <br>
+{{ 'banana' | i18nSelect: fruit}} <br>
+{{ grape | i18nSelect: fruit}}
